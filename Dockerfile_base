@@ -2,17 +2,12 @@
 FROM ubuntu:22.04
 
 
-# PATH
-ENV PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-
-
 
 # Aquí instalas lo que necesites para tu proyecto
 RUN apt-get update && apt-get install -y \
     wget \
     curl \
     libnss3 \
-    iproute2 \
     && rm -rf /var/lib/apt/lists/*
 
 # Instalación lampp
@@ -22,23 +17,11 @@ RUN chmod +x /opt/xampp.run && \
     /opt/xampp.run --mode unattended && \
     rm /opt/xampp.run
 
-
 # Añadir el directorio bin del lampp al PATH
+
 ENV PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/lampp/bin"
-
-# Instalar composer
-RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar bin/composer
-
-
-# Crear proyecto
-WORKDIR /opt/lampp/htdocs
-RUN composer create-project --prefer-dist laravel/laravel Tienda
-WORKDIR /opt/lampp/htdocs/Tienda
-
   
-EXPOSE 8000
 
 # Comando por defecto
 CMD ["/bin/bash"]
-# CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+
