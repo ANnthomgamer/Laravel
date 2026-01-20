@@ -304,7 +304,84 @@ WORKDIR /opt/lampp/htdocs/Tienda
 RUN php artisan migrate
 
 
+# Relacionar los modelos
 
+WORKDIR /opt/lampp/htdocs/Tienda/app/Models/
+RUN cat > Category.php << 'EOF'
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
+{         
+    //  
+    protected $fillable = ['name'];
+    public function products()
+    {       
+        return $this->hasMany(Product::class);    
+    }       
+}
+
+EOF
+
+
+RUN cat > Product.php << 'EOF'
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+    //
+    protected $fillable = ['description','stock','price','category_id'];
+    public function category() 
+    { 
+        return $this->belongsTo(Category:class);    
+    }       
+}
+
+EOF
+
+
+# Controlador y rutas
+WORKDIR /opt/lampp/htdocs/Tienda
+RUN php artisan make:controller ProductController
+
+
+
+RUN <<EOF cat > routes/web.php
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+Route::get('/', function () {
+    return view('welcome');  
+});
+ */
+
+Route::get('/', fn() => view('home'))->name('home');
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::get('/products/filter', [ProductController::class, 'filterForm'])->name('products.filter.form');
+Route::get('/products/filter/results', [ProductController::class, 'filterResults'])->name('products.filter.results');
+Route::get('/products/manage', [ProductController::class, 'manage'])->name('products.manage');
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+EOF
 
 EXPOSE 8000
 
