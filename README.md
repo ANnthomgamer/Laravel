@@ -3,6 +3,16 @@
 Este repositorio contiene el trabajo práctico para la asignatura de **Implantación de Aplicaciones Web**, enfocado en el despliegue y gestión de entornos Laravel.
 
 ---
+##  Índice
+1. [Dependencias](#dependencias)
+   - [Instalación de Docker en Ubuntu](#instalación-de-docker-en-ubuntu)
+   - [Instalación de Docker en RHEL](#instalación-de-docker-en-rhel)
+2. [Guía de Uso y Despliegue](#guía-de-uso-y-despliegue)
+   - [1. Descargar Dockerfile (Recomendado)](#1-descargar-dockerfile-recomendado)
+   - [Crear imagen a partir del Dockerfile](#crear-imagen-a-partir-del-dockerfile)
+   - [Construir y levantar el entorno](#construir-y-levantar-el-entorno)
+
+
 
 ## Dependencias
 ### [Instalación de docker en Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
@@ -79,7 +89,7 @@ Puedes utilizar este proyecto de varias formas, dependiendo de si quieres el có
 Ideal si quieres trabajar directamente sobre el código o ver el historial de cambios.
 
 ``` bash
-wget https://github.com/ANnthomgamer/Laravel/blob/main/Dockerfile
+wget [https://github.com/ANnthomgamer/Laravel/blob/main/Dockerfile](https://raw.githubusercontent.com/ANnthomgamer/Laravel/refs/heads/main/Dockerfile/Dockerfile)
 ```
 
 #### Crear imagen a partir del Dockerfile
