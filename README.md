@@ -101,4 +101,24 @@ docker build -t laravel_juangial .
 #### Construir y levantar el entorno
 Posteriormente,  lanzar el contenedor desde la imagen recientemente creada
 
+### Copiar el proyecto en laravel
+Para ello,  se deberá tener previamente un servidor de laravel desplegado y crear un proyecto mediante (estando en el directorio donde almacenes las páginas en tu servidor web)
+
+```bash
+composer create-project laravel/laravel nombre-del-proyecto
+```
+
+Después, descargar el repositorio y copiar el proyecto
+```bash
+git clone https://github.com/ANnthomgamer/Laravel.git ~/Downloads
+cp ~/Downloads/Laravel/Proyecto/* nombre-del-proyecto
+cd nombre-del-proyecto && composer install
+php artisan key:generate
+```
+
+Y lanzar el servidor  con 
+```php
+php artisan serve --host=0.0.0.0 --port=80
+```
+
 
