@@ -3,14 +3,17 @@
 Este repositorio contiene el trabajo práctico para la asignatura de **Implantación de Aplicaciones Web**, enfocado en el despliegue y gestión de entornos Laravel.
 
 ---
-##  Índice
+## Índice
 1. [Dependencias](#dependencias)
    - [Instalación de Docker en Ubuntu](#instalación-de-docker-en-ubuntu)
    - [Instalación de Docker en RHEL](#instalación-de-docker-en-rhel)
 2. [Guía de Uso y Despliegue](#guía-de-uso-y-despliegue)
    - [1. Descargar Dockerfile (Recomendado)](#1-descargar-dockerfile-recomendado)
-   - [Crear imagen a partir del Dockerfile](#crear-imagen-a-partir-del-dockerfile)
-   - [Construir y levantar el entorno](#construir-y-levantar-el-entorno)
+   - [2. Crear imagen a partir del Dockerfile](#crear-imagen-a-partir-del-dockerfile)
+   - [3. Construir y levantar el entorno](#construir-y-levantar-el-entorno)
+   - [4. Copiar el proyecto en Laravel](#copiar-el-proyecto-en-laravel)
+
+---
 
 
 
