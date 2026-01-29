@@ -9,9 +9,9 @@ Este repositorio contiene el trabajo práctico para la asignatura de **Implantac
    - [Instalación de Docker en RHEL](#instalación-de-docker-en-rhel)
 2. [Guía de Uso y Despliegue](#guía-de-uso-y-despliegue)
    - [1. Descargar Dockerfile (Recomendado)](#1-descargar-dockerfile-recomendado)
-   - [2. Crear imagen a partir del Dockerfile](#crear-imagen-a-partir-del-dockerfile)
-   - [3. Construir y levantar el entorno](#construir-y-levantar-el-entorno)
-   - [4. Copiar el proyecto en Laravel](#copiar-el-proyecto-en-laravel)
+	   - [Crear imagen a partir del Dockerfile](#crear-imagen-a-partir-del-dockerfile)
+	   - [Construir y levantar el entorno](#construir-y-levantar-el-entorno)
+   - [2. Copiar el proyecto en Laravel](#2-copiar-el-proyecto-en-laravel)
 
 ---
 
@@ -104,7 +104,7 @@ docker build -t laravel_juangial .
 #### Construir y levantar el entorno
 Posteriormente,  lanzar el contenedor desde la imagen recientemente creada
 
-### Copiar el proyecto en laravel
+### 2. Copiar el proyecto en laravel
 Para ello,  se deberá tener previamente un servidor de laravel desplegado y crear un proyecto mediante (estando en el directorio donde almacenes las páginas en tu servidor web)
 
 ```bash
