@@ -1,0 +1,200 @@
+
+
+
+/* Variables de color Cyberpunk 2077 */
+:root {
+    --cp-yellow: #fcee0a;
+    --cp-cyan: #00f0ff;
+    --cp-magenta: #ff003c;
+    --cp-bg: #050505;
+    --cp-gray: #1a1a1a;
+}
+
+body {
+    background-color: var(--cp-bg);
+    color: white;
+    font-family: 'Courier New', Courier, monospace; /* Fuente estilo terminal */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- HEADER --- */
+.cyber-header {
+    background: var(--cp-yellow);
+    color: black;
+    padding: 15px 30px;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 98% 100%, 0 100%);
+    border-bottom: 4px solid var(--cp-cyan);
+}
+
+.glitch-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+/* --- NAV --- */
+.cyber-nav {
+    background: var(--cp-gray);
+    border-bottom: 2px solid var(--cp-magenta);
+}
+
+.nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.cyber-nav a {
+    color: var(--cp-cyan);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.cyber-nav a:hover {
+    background: var(--cp-magenta);
+    color: white;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+/* --- MAIN --- */
+.cyber-main {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Alertas de estilo Hacker */
+.cyber-alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-left: 5px solid;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.success {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: var(--cp-cyan);
+    color: var(--cp-cyan);
+}
+
+.danger {
+    background: rgba(255, 0, 60, 0.1);
+    border-color: var(--cp-magenta);
+    color: var(--cp-magenta);
+}
+
+/* --- FOOTER --- */
+.cyber-footer {
+    padding: 20px;
+    text-align: center;
+    color: #555;
+}
+
+.footer-line {
+    height: 1px;
+    background: var(--cp-magenta);
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Estilo para los campos de entrada de texto, números, selects y botones */
+.cyber-input, 
+.cyber-button-alt,
+select.cyber-input {
+    /* Fondo oscuro para que coincida con el tema */
+    background-color: #0a0a0a; 
+    /* Texto verde neón */
+    color: #00ff41; 
+    /* Borde estilo terminal */
+    border: 1px solid #00ff41; 
+    padding: 8px 12px;
+    font-family: monospace; /* Fuente monoespaciada */
+    /* Elimina el borde blanco por defecto de los navegadores */
+    appearance: none; 
+    border-radius: 0; /* Bordes cuadrados */
+}
+
+/* Efecto de "brillo neón" al enfocar un campo */
+.cyber-input:focus,
+select.cyber-input:focus {
+    outline: none; /* Elimina el borde azul por defecto */
+    box-shadow: 0 0 10px #00ff41; /* Añade un brillo verde alrededor */
+    border-color: #00ff41;
+}
+
+/* Estilo específico para el botón */
+.cyber-button-alt {
+    cursor: pointer;
+    background-color: #00ff41; /* Invierte los colores para un botón destacado */
+    color: #0a0a0a;
+    font-weight: bold;
+    border: 1px solid #00ff41;
+}
+
+.cyber-button-alt:hover {
+    background-color: #00e639;
+    box-shadow: 0 0 15px #00ff41;
+}
+
+/* Estilo para el contenedor de cada campo (etiqueta + input) */
+.cyber-form-group {
+    margin-bottom: 15px;
+}
+
+/* Estilo para las etiquetas */
+label {
+    color: #fff; /* Etiquetas en blanco o color claro */
+    display: block;
+    margin-bottom: 5px;
+    font-family: monospace;
+}
+
+/* Estilo para la tabla Cyber */
+.cyber-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: var(--cp-cyan); /* Texto principal de la tabla */
+    font-family: monospace;
+}
+
+.cyber-table th, .cyber-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--cp-gray);
+}
+
+.cyber-table th {
+    background-color: var(--cp-gray);
+    color: var(--cp-yellow);
+    text-transform: uppercase;
+}
+
+.cyber-table tbody tr:hover {
+    background-color: rgba(0, 240, 255, 0.05);
+}
+
+/* Modificadores de color para botones de acción */
+.cyber-button-alt.warning {
+    background-color: var(--cp-yellow);
+    color: black;
+    border-color: var(--cp-yellow);
+}
+
+.cyber-button-alt.danger {
+    background-color: var(--cp-magenta);
+    color: white;
+    border-color: var(--cp-magenta);
+}
+
+
