@@ -26,6 +26,9 @@
             <a href="{{ route('products.filter.form') }}">LISTADO FILTRADO</a>
 
             <a href="{{ route('categories.create') }}">CREAR CATEGORÍA</a>
+	    
+	    <a href="{{ route('providers.create') }}">ANADIR PROVEEDOR</a>
+	    <a href="{{ route('providers.index') }}">VER PROVEEDOR</a>
 
             <a href="{{ route('products.manage') }}">MODIFICAR/BORRAR</a>
         </div>

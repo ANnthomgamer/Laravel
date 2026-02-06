@@ -4,39 +4,39 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Provider;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    // OPCION3: listado general
+       
     public function index()
     {
-        $products = Product::with('category')->orderBy('id')->get();
+        $products = Product::with('category','provider')->get();
         return view('products.index', compact('products'));
     }
 
-    // OPCION2: formulario alta
     public function create()
     {
-        $categories = Category::orderBy('name')->get();
-        return view('products.create', compact('categories'));
+	$categories = Category::orderBy('name')->get();
+	$providers = Provider::all();
+        return view('products.create', compact('categories','providers'));
     }
 
-    // OPCION2: guardar alta
     public function store(Request $request)
     {
         $data = $request->validate([
-            'description' => 'required|min:3',
+            'name' => 'required|min:3',
             'stock' => 'required|integer|min:0',
             'price' => 'required|numeric|min:0',
             'category_id' => 'required|exists:categories,id',
+            'provider_id' => 'required|exists:providers,id',
         ]);
 
         Product::create($data);
         return redirect()->route('products.index')->with('ok', 'Producto guardado correctamente');
     }
 
-    // OPCION4: formulario filtro
     public function filterForm()
     {
         return view('products.filter');
@@ -63,7 +63,6 @@ class ProductController extends Controller
         return view('products.index', compact('products'));
     }
 
-    // OPCION5: pantalla “gestión” (elige y accede a editar/borrar)
     public function manage()
     {
         $products = Product::with('category')->orderBy('id')->get();
@@ -79,7 +78,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $data = $request->validate([
-            'description' => 'required|min:3',
+            'name' => 'required|min:3',
             'stock' => 'required|integer|min:0',
             'price' => 'required|numeric|min:0',
             'category_id' => 'required|exists:categories,id',

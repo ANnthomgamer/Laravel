@@ -7,29 +7,23 @@
 <form method="POST" action="{{ route('products.store') }}">
     @csrf
 
-    <!-- Campo Descripción -->
     <div class="cyber-form-group">
-        <label>Descripción</label>
-        <input class="cyber-input" name="description" value="{{ old('description') }}">
+        <label>Producto</label>
+        <input class="cyber-input" name="name" value="{{ old('name') }}">
     </div>
 
-    <!-- Campo Stock -->
-    <!-- Reemplazamos mb-3 y form-control -->
     <div class="cyber-form-group">
         <label class="form-label">Stock</label>
         <input class="cyber-input" type="number" name="stock" value="{{ old('stock', 0) }}">
     </div>
 
-    <!-- Campo Precio -->
     <div class="cyber-form-group">
         <label class="form-label">Precio</label>
         <input class="cyber-input" type="number" step="0.01" name="price" value="{{ old('price', 0) }}">
     </div>
 
-    <!-- Campo Categoría -->
     <div class="cyber-form-group">
         <label class="form-label">Categoría</label>
-        <!-- Reemplazamos form-select -->
         <select class="cyber-input" name="category_id">
             <option value="">-- elige --</option>
             @foreach($categories as $c)
@@ -40,8 +34,18 @@
         </select>
     </div>
 
-    <!-- Botón Guardar -->
-    <!-- Reemplazamos btn btn-primary por cyber-button-alt -->
+    <div class="cyber-form-group">
+        <label class="form-label">Proveedor</label>
+        <select class="cyber-input" name="provider_id">
+            <option value="">-- elige --</option>
+            @foreach($providers as $p)
+                <option value="{{ $p->id }}" @selected(old('provider_id') == $p->id)>
+                    {{ $p->name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+
     <button class="cyber-button-alt">Guardar</button>
 </form>
 @endsection
